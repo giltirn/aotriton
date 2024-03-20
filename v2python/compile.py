@@ -125,7 +125,7 @@ def main():
         if args.nostrip:
             shutil.copy(hsaco_path, out_path.with_suffix('.hsaco'))
         else:
-            subprocess.run(['/opt/rocm/llvm/bin/llvm-objcopy', '--remove-section', '.debug_*', str(hsaco_path), str(out_path.with_suffix('.hsaco'))])
+            subprocess.run(['/opt/rocm-5.7.0/llvm/bin/llvm-objcopy', '--remove-section', '.debug_*', str(hsaco_path), str(out_path.with_suffix('.hsaco'))])
 
     with out_path.with_suffix('.json').open("w") as fp:
         json.dump(ccinfo.metadata, fp, indent=2)

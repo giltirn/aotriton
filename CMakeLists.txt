@@ -18,7 +18,7 @@ option(AOTRITON_NO_SHARED "Disable shared object build. Incompatible with AOTRIT
 option(AOTRITON_NO_PYTHON "Disable python binding build" OFF)
 option(AOTRITON_ENABLE_ASAN "Enable Address Sanitizer. Implies -g" OFF)
 set(TARGET_GPUS "MI200;MI300X" CACHE STRING "Target Architecture (Note here uses Trade names)")
-set(AMDHSA_LD_PRELOAD "/opt/rocm/lib/libhsa-runtime64.so" CACHE STRING "Workaround of libamdhip64.so.5: undefined symbol: hsa_amd_memory_async_copy_on_engine")
+set(AMDHSA_LD_PRELOAD "/opt/rocm-5.7.0/lib/libhsa-runtime64.so" CACHE STRING "Workaround of libamdhip64.so.5: undefined symbol: hsa_amd_memory_async_copy_on_engine")
 
 # GPU kernel compression related options
 option(AOTRITON_COMPRESS_KERNEL "Enable GPU kernel compression with zstd. Fail when zstd is unavailable. Only effective for AOTriton API V2" ON)
@@ -51,7 +51,7 @@ if(AOTRITON_COMPRESS_KERNEL)
     endif()
 endif()
 
-set(AOTRITON_EXTRA_COMPILER_OPTIONS "-I/opt/rocm/include/ ")
+set(AOTRITON_EXTRA_COMPILER_OPTIONS "-I/opt/rocm-5.7.0/include/ ")
 if(AOTRITON_ENABLE_ASAN)
     set(AOTRITON_EXTRA_COMPILER_OPTIONS "${AOTRITON_EXTRA_COMPILER_OPTIONS} -g -fsanitize=address -fno-omit-frame-pointer")
     set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} ${AOTRITON_EXTRA_COMPILER_OPTIONS}")

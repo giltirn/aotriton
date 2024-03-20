@@ -48,7 +48,7 @@ def main():
     args = parse()
     build_dir = Path(args.build_dir)
     with open(build_dir / 'Makefile.compile', 'w') as f:
-        print('LIBHSA_RUNTIME64=/opt/rocm/lib/libhsa-runtime64.so\n', file=f)
+        print('LIBHSA_RUNTIME64=/opt/rocm-5.7.0/lib/libhsa-runtime64.so\n', file=f)
         makefile_content = io.StringIO()
         per_kernel_targets = []
         for k in rules.kernels:
