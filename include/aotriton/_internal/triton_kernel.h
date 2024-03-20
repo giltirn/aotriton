@@ -10,9 +10,9 @@
 #endif
 
 #include "../runtime.h"
-#if AOTRITON_USE_ZSTD
+//#if AOTRITON_USE_ZSTD
 #include <vector>
-#endif
+//#endif
 
 namespace aotriton {
 
